@@ -8,7 +8,7 @@ import {script} from "./markers";
 
 function Lesson() {
   return (
-    <Player controls={controls} script={script}/* thumbs={thumbData}*/>
+    <Player controls={controls} script={script}>
       <h1>Hello World!</h1>
     </Player>
   );

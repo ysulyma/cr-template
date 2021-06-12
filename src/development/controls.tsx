@@ -1,3 +1,11 @@
+import {Player} from "ractive-player";
 import {RecordingControl} from "rp-recording";
 
-export default undefined;
+export default <>
+  {Player.defaultControlsLeft}
+
+  <div className="rp-controls-right">
+    <RecordingControl/>
+    {Player.defaultControlsRight}
+  </div>
+</>;
