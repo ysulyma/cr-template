@@ -6,17 +6,12 @@ Clone this repository, then do
 
 ```bash
 npm install
+npm start
 ```
 
 ## Recording
 
-Compile in **development** mode:
-
-```bash
-webpack --watch
-```
-
-Now open the page and click on the recording (circle) icon in the controls.
+Click on the recording (circle) icon in the controls.
 
 Select Markers for recording (to record Audio, you must access the page over HTTPS). Use the keyboard command to start/stop recording. Then:
 
