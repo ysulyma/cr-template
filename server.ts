@@ -5,7 +5,9 @@ import * as path from "path";
 import {exec} from "child_process";
 import * as livereload from "livereload";
 import * as compression from "compression";
+import * as webpack from "webpack";
 
+/* express */
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -29,12 +31,22 @@ app.use("/", async (req, res, next) => {
 app.use("/", express.static("."));
 app.listen(port);
 
+/* livereload */
 const livereload = require("livereload");
 
-// server
 const lrHttpServer = livereload.createServer({
   exts: ["html", "css", "png", "gif", "jpg", "svg"]
 });
 lrHttpServer.watch(__dirname);
 
+/* webpack */
+const webpackConfig = require("./webpack.config.js");
+const compiler = webpack(webpackConfig);
+compiler.watch({}, (err, stats) => {
+  console.info(stats.toString({
+    colors: true
+  }));
+});
+
+/* open url */
 exec(`xdg-open http://localhost:${port}`);
